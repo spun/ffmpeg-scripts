@@ -1,0 +1,2 @@
+# Ignore the ffmpeg binary. You can download it from https://www.ffmpeg.org/download.html
+ffmpeg.exe
