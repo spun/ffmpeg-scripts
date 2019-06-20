@@ -23,5 +23,5 @@ ffmpeg -i video_scaled.webm -i palette.png -lavfi paletteuse output.gif
 ## Alternative
 
 ```bash
-ffmpeg -i video.webm -filter:v scale=250:-1-r 60 demo.gif
+ffmpeg -i video.webm -filter:v scale=250:-1 -r 60 demo.gif
 ```

@@ -20,6 +20,14 @@ These scripts use ffmpeg in order to run. You need to download the latest static
 
 **result:** A new `mp4` video file will be created in the same folder as the original M3U file.
 
+### ClearMetadataTitle.bat
+
+**description:** Removes the metadata title value.
+
+**how to use:** Drag and drop a file into `ClearMetadataTitle.bat`.
+
+**result:** A new file named `{filename}.clear.{extension}` with the metadata value removed will be created in the same folder as the original.
+
 ### merger/Merger.bat (alpha)
 
 **description:** Merge an audio and a video file into a new mkv video file.
