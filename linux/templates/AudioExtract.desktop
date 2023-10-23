@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AudioExtract
+Comment=Extract the audio from a video
+Exec=sh ./AudioExtract.sh
+Terminal=true

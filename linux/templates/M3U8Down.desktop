@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=M3U8Down
+Comment=Download the video from a M3U8 file
+Exec=sh ./M3U8Down.sh
+Terminal=true
