@@ -27,7 +27,7 @@ filename_noext="${filename%.*}"
 dirname=$(dirname -- "$m3u8_file")
 
 echo "Running command..."
-ffmpeg -loglevel warning -protocol_whitelist "file,http,tcp,https,tls" -i $m3u8_file -ss $start_time -bsf:a aac_adtstoasc -c copy "$dirname/$filename_noext.mp4"
+ffmpeg -loglevel warning -protocol_whitelist "file,http,tcp,https,tls" -i "$m3u8_file" -ss $start_time -bsf:a aac_adtstoasc -c copy "$dirname/$filename_noext.mp4"
 
 echo "Done"
 sleep 5s
