@@ -26,8 +26,20 @@ filename=$(basename -- "$m3u8_file")
 filename_noext="${filename%.*}"
 dirname=$(dirname -- "$m3u8_file")
 
-echo "Running command..."
-ffmpeg -loglevel warning -protocol_whitelist "file,http,tcp,https,tls" -i "$m3u8_file" -ss $start_time -bsf:a aac_adtstoasc -c copy "$dirname/$filename_noext.mp4"
+echo "Running download command..."
+if ffmpeg -loglevel warning -protocol_whitelist "file,http,tcp,https,tls" -i "$m3u8_file" -ss $start_time -c copy -f mpegts "$dirname/$filename_noext.ts.part"; then
+  echo "Download completed, converting to .mp4"
+  if ffmpeg -i "$dirname/$filename_noext.ts.part" -c:v copy -c:a copy "$dirname/$filename_noext.mp4"; then
+    echo "Conversion complete, cleaning up..."
+
+    # Delete the intermediate .ts file
+    rm "$dirname/$filename_noext.ts.part"
+  else
+    echo "Conversion failed."
+  fi
+else
+  echo "Download failed."
+fi
 
 echo "Done"
 sleep 5s
